@@ -8,7 +8,7 @@ export default function Home() {
     return (
         <>
             <Navbar/>
-            <div className="w-full flex flex-col lg:flex-row h-screen ">
+            <div className="w-full flex flex-col lg:flex-row lg:h-screen ">
                 <div className="  w-[20%]  bg-[#2B2B2B] p-4">
                     <Normalform setprediction={setprediction}/>
                 </div>
