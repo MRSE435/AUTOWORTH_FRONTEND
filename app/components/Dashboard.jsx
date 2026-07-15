@@ -11,7 +11,13 @@ export default function Dashboard({prediction}) {
     //     { label: "Fuel", value: 10 },
     //     { label: "Transmission", value: 8 },
     // ];
+    if(!prediction)
+    {
+        return null
+    }
+
     const [data,setdata] = useState([]);
+    const best_prediction=prediction.best_model
     useEffect(()=>{
         async function fetchImportances()
         {
@@ -27,14 +33,14 @@ export default function Dashboard({prediction}) {
             <div className="grid  flex-1   grid-cols-[1fr] lg:grid-cols-[1fr_1fr]  gap-4  min-h-0  ">
                 <div className="border  firstrow  bg-[#E8E5FF]  flex justify-between  items-center sm:w-full p-2 sm:p-4 rounded-2xl shrink">
                     <div className="gap-2 flex-col flex min-w-0">
-                        <h1 className=" font-bold text-[#6A5ACD]">BEST .RANDOM FOREST</h1>
-                        <h1 className="sm:text-4xl text-[#3D336B] font-bold">{prediction}</h1>
-                        <h1 className="font-bold text-[#6E6A8A]">+$18,000 range</h1>
+                        <h1 className=" font-bold text-[#6A5ACD]">BEST .XgBoost Regressor</h1>
+                        <h1 className="sm:text-4xl text-[#3D336B] font-bold">{prediction.models[best_prediction].prediction}</h1>
+                        <h1 className="font-bold text-[#6E6A8A]">±{prediction.models[best_prediction].mae}</h1>
                     </div>
                     <div className="gap-2 flex-col flex min-w-0">
                         <h1 className=" sm:font-bold text-[#6A5ACD]">R² MAE</h1>
-                        <h1 className="sm:text-4xl text-[#3D336B] font-bold">0.94</h1>
-                        <h1 className="sm:font-bold text-[#6E6A8A]">+$18,000 range</h1>
+                        <h1 className="sm:text-4xl text-[#3D336B] font-bold">{prediction.models[best_prediction].test_r2}</h1>
+                        <h1 className="sm:font-bold text-[#6E6A8A]">±{prediction.models[best_prediction].mae}</h1>
 
                     </div>
                 </div>
