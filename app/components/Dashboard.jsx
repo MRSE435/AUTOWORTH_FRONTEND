@@ -1,14 +1,27 @@
 import Allmodelsstats from "./Allmodelsstats";
 import KmVsPriceChart from "../Charts/KmVsPriceChart";
 import MetricBars from "@/app/components/MetricBarComponent/MetricBars";
+import {useEffect, useState} from "react";
+import RsqaureChart from "../Charts/RsqaureChart";
 export default function Dashboard({prediction}) {
-    const data = [
-        { label: "Brand", value: 34 },
-        { label: "Year", value: 26 },
-        { label: "KM", value: 22 },
-        { label: "Fuel", value: 10 },
-        { label: "Transmission", value: 8 },
-    ];
+    // const data = [
+    //     { label: "Brand", value: 34 },
+    //     { label: "Year", value: 26 },
+    //     { label: "KM", value: 22 },
+    //     { label: "Fuel", value: 10 },
+    //     { label: "Transmission", value: 8 },
+    // ];
+    const [data,setdata] = useState([]);
+    useEffect(()=>{
+        async function fetchImportances()
+        {
+            const  response=await fetch("http://127.0.0.1:5000/data-feature-importance")
+            const json = await response.json()
+            setdata(json)
+        }
+        fetchImportances()  ;
+
+    },[])
     return (
         <div className="flex flex-col lg:h-full gap-4 ">
             <div className="grid  flex-1   grid-cols-[1fr] lg:grid-cols-[1fr_1fr]  gap-4  min-h-0  ">
@@ -29,24 +42,24 @@ export default function Dashboard({prediction}) {
             </div>
 
 
-            <div className="lg:flex-[1.2] border grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4  min-h-0  ">
+            <div className="lg:flex-[1.2] border grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 p-4  min-h-0  overflow-y-auto ">
                 <div className="min-w-0">
-                    <MetricBars data={data} color="#8B5CF6" />
+                    <MetricBars data={data["Linear"]||[]} color="#8B5CF6" />
                 </div>
                 <div className="min-w-0">
-                    <MetricBars data={data} color="#8B5CF6" />
+                    <MetricBars data={data["Lasso"]||[]} color="#8B5CF6" />
                 </div>
                 <div className="min-w-0">
-                    <MetricBars data={data} color="#8B5CF6" />
+                    <MetricBars data={data["RandomForest"]||[]} color="#8B5CF6" />
                 </div>
                 <div className="min-w-0">
-                    <MetricBars data={data} color="#8B5CF6" />
+                    <MetricBars data={data["Xgboost"] || []} color="#8B5CF6" />
                 </div>
             </div>
 
             <div className="grid  gris-cols-[1fr] lg:grid-cols-[1fr_1fr] md:flex-1 gap-4 ">
                 <div className="border min-h-[30vh]">
-
+                  <RsqaureChart />
                 </div>
                 <div className="border  min-h-[30vh]">
                      <KmVsPriceChart />
