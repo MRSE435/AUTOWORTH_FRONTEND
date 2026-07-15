@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Navbar() {
     return (
         <nav className="flex  bg-[#3E3788] lg:p-4 lg:pb-2 text-2xl  p-2     justify-between  border-b-white pb-0" >
@@ -8,11 +9,11 @@ export default function Navbar() {
 
 
             <div className=" text-sm hidden   text-whitetext-black gap-10 sm:gap-5   md:flex     lg:text-xl    sm:text-2xl md:text-xl ">
-                <a href="#">Programs</a>
-                <a href="#">Admissions</a>
-                <a href="#">Campus</a>
-                <a href="#">Faculty</a>
-                <a href="#">About</a>
+                <Link href="/">Home</Link>
+                <Link href="/Predict">Predict</Link>
+                <Link href="/Compare">Compare</Link>
+                <Link href="/About">About</Link>
+
 
             </div>
             <div className=" gap-3 text-black  md:hidden   lg:flex list-none text-xl  align-middle">
