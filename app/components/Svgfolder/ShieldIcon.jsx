@@ -1,25 +1,24 @@
-export default function TrendUp({ className = "" }) {
+export default function ShieldIcon({ className = "" }) {
     return (
         <svg
             viewBox="0 0 24 24"
             fill="none"
-            className={className}
             xmlns="http://www.w3.org/2000/svg"
+            className={className}
         >
             <path
-                d="M4 17L9 12L13 16L20 9"
+                d="M12 2.5L5 5.5V10.8C5 16.2 8.5 20.3 12 21.5C15.5 20.3 19 16.2 19 10.8V5.5L12 2.5Z"
                 stroke="currentColor"
-                strokeWidth="2.8"
+                strokeWidth="2.4"
                 strokeLinecap="round"
                 strokeLinejoin="round"
             />
 
             <path
-                d="M16 9H20V13"
+                d="M12 4.5V20"
                 stroke="currentColor"
-                strokeWidth="2.8"
+                strokeWidth="2"
                 strokeLinecap="round"
-                strokeLinejoin="round"
             />
         </svg>
     );
