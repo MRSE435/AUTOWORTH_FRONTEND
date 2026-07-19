@@ -11,21 +11,21 @@ export default function XGB() {
                 stroke-linecap="round"
                 stroke-linejoin="round"
             >
-                <!-- Main trunk -->
+
                 <path d="M32 52V38"/>
 
-                <!-- Main branches -->
+
                 <path d="M32 38L20 28"/>
                 <path d="M32 38L44 28"/>
 
-                <!-- Upper branches -->
+
                 <path d="M20 28L14 16"/>
                 <path d="M20 28L26 16"/>
 
                 <path d="M44 28L38 16"/>
                 <path d="M44 28L50 16"/>
 
-                <!-- Nodes -->
+
                 <circle cx="32" cy="38" r="2.8"/>
                 <circle cx="20" cy="28" r="2.8"/>
                 <circle cx="44" cy="28" r="2.8"/>
@@ -34,7 +34,7 @@ export default function XGB() {
                 <circle cx="38" cy="16" r="2.8"/>
                 <circle cx="50" cy="16" r="2.8"/>
 
-                <!-- Boost Arrow -->
+
                 <path d="M46 50L56 40"/>
                 <path d="M56 40H50"/>
                 <path d="M56 40V46"/>
