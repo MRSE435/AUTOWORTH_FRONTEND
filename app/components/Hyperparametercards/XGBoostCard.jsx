@@ -60,7 +60,7 @@ export default  function XGBoostCard()
         <div className="w-full h-full bg-[#0F1220] border-[#5B3FCB] p-4 flex flex-col justify-between">
             <div className="flex gap-4">
                 <div className="p-4 bg-[#5B3FCB] flex justify-center items-center rounded-xl shrink-0">
-                    <TrendUp className="w-5 h-5 sm:w-10 h-10  text-white"/>
+                    <XGB className="w-5 h-5 sm:w-10 h-10  text-white"/>
                 </div>
                 <div  className="flex flex-col gap-2">
                     <h1  className=" sm:text-xl md:text-2xl   lg:text-3xl text-white" >Linear Regression</h1>
@@ -79,7 +79,7 @@ export default  function XGBoostCard()
             <HyperParameterTable  rows={rows}/>
 
             <div className="flex  justify-between bg-[#1A1232] border-[#2A1D54]">
-                <XGB className=" text-[#5B3FCB] w-5 h-5 sm:w-10 h-10  " />
+                <InfoIcon className=" text-[#5B3FCB] w-5 h-5 sm:w-10 h-10  " />
                 <h1 className="text-xl self-center text-white text-wrap">This model achieved the highest Test R² score with the lowest errors</h1>
             </div>
 

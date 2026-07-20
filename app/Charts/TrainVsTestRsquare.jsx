@@ -45,7 +45,7 @@ export default function TrainVsTestRsquare() {
             <YAxis domain={[0,1]} tickCount={5}  tick={{ fill: "white" }} />
              <Tooltip />
              <Legend />
-            <Bar dataKey="trainR2" name="Train R²" radius={[4, 4, 0, 0]}>
+            <Bar dataKey="trainR2" name="Train R²"  fill="#5b548a"  radius={[4, 4, 0, 0]}>
                 {data.map((entry, index) => (
                     <Cell
                         key={`cell-train-${index}`}
@@ -54,7 +54,7 @@ export default function TrainVsTestRsquare() {
                 ))}
             </Bar>
 
-            <Bar dataKey="testR2" name="Test R²" radius={[4, 4, 0, 0]}>
+            <Bar dataKey="testR2" name="Test R²"  fill="#8a70d6" radius={[4, 4, 0, 0]}>
                 {data.map((entry, index) => (
                     <Cell
                         key={`cell-test-${index}`}
